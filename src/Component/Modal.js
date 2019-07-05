@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames'
 import './Modal.scss'
 
 class Modal extends Component {
-    constructor (props) {
-        super(props)
-        this.state = {
-            opened: false
-        }
-    }
-
     render() {
         return (
-            <div className='wrapper'>
-                <div className='modal'>
+                <div className={classnames('modal', { opened: this.props.opened}, this.props.animation)}>
                 <div className='modal-header'>Header</div>
-                Modal
                 </div>
-            </div>
         )
     }
+}
+
+Modal.propTypes = {
+    opened: PropTypes.bool,
+    animation: PropTypes.string
 }
 
 export default Modal;
